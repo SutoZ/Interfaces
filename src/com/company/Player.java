@@ -3,6 +3,8 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.company.Main.readValues;
+
 public class Player implements ICapability {
 
     private String name;
@@ -12,6 +14,10 @@ public class Player implements ICapability {
 
     public String getName() {
         return name;
+    }
+
+    public void setHitPoints(int value) {
+        this.hitPoints = value;
     }
 
     public int getHitPoints() {
@@ -53,6 +59,8 @@ public class Player implements ICapability {
             this.weapon = savedValues.get(3);
         }
     }
+
+
 
     @Override
     public String toString() {

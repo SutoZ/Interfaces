@@ -18,6 +18,16 @@ public class Main {
 
         zolisPhone.callPhone(2323);
         zolisPhone.answer();
+
+        Player player = new Player("Zoli", 30,24, "sword");
+        System.out.println(player.toString());
+        saveObject(player);
+
+        player.setHitPoints(8);
+        System.out.println(player.toString());
+        saveObject(player);
+        loadObject(player);
+
     }
 
     public static ArrayList<String> readValues() {
@@ -45,5 +55,23 @@ public class Main {
             }
         }
         return values;
+    }
+
+
+
+    //It can save any object that implements ICabability interface.
+    public static void saveObject(ICapability objectToSave) {
+        for (int i = 0; i < objectToSave.write().size(); i++) {
+            System.out.println("Saving " + objectToSave.write().get(i) + " to storage device");
+
+        }
+    }
+
+    //load data back
+    public static void loadObject(ICapability objectToLoad) {
+        ArrayList<String> values = readValues();
+        objectToLoad.populate(values);
+
+
     }
 }
